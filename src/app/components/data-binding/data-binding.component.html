@@ -1,0 +1,30 @@
+<div class="row">
+    <div class="col-6">
+        1. interpolation
+        <p>firstName: {{firstName}}</p>
+
+        <div>
+            rollNo: {{rollNo}}
+        </div>
+
+        <span>isActive: {{isActive}}</span>
+    </div>
+
+    <div class="col-6">
+        propertiy binding
+        <input placeholder="First Name" id="firstNameInput" type="text" [value]="firstName">
+        <br>
+        <input type="text" [placeholder]="myPlaceholder">
+        <div [class]="div1ClassName" style="width: 100px; height: 100px;">
+
+        </div>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-success" (click)="showWelcomeMessage()">
+            Show Welcome Message
+        </button>
+    </div>
+</div>
