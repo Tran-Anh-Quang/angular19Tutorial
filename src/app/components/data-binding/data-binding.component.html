@@ -1,6 +1,7 @@
 <div class="row">
+    <!-- Interpolation -->
     <div class="col-6">
-        1. interpolation
+        1. Interpolation
         <p>firstName: {{firstName}}</p>
 
         <div>
@@ -10,8 +11,10 @@
         <span>isActive: {{isActive}}</span>
     </div>
 
+    <!-- property Binding -->
     <div class="col-6">
-        propertiy binding
+        2. Property binding
+        <br>
         <input placeholder="First Name" id="firstNameInput" type="text" [value]="firstName">
         <br>
         <input type="text" [placeholder]="myPlaceholder">
@@ -21,10 +24,38 @@
     </div>
 </div>
 
+<!-- Event Binding -->
 <div class="row">
     <div class="col-3">
+        3. Event Binding
         <button class="btn btn-success" (click)="showWelcomeMessage()">
             Show Welcome Message
         </button>
+    </div>
+    <div class="col-3">
+        <select (change)="onCityChange()">
+            <option value="Pune">Pune</option>
+            <option value="Nagur">Nagur</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Panji">Panji</option>
+        </select>
+    </div>
+</div>
+
+<!-- Two way binding -->
+<div class="row">
+    <div class="col-3">
+        <label for="firstNameInput">First Name:</label>
+        <input type="text" id="firstNameInput" [(ngModel)]="firstName">
+    </div>
+
+    <div class="col-3">
+        <select [(ngModel)]="selectedCity">
+            <option value="Pune">Pune</option>
+            <option value="Nagur">Nagur</option>
+            <option value="Mumbai">Mumbai</option>
+            <option value="Panji">Panji</option>
+        </select>
+        - {{selectedCity}}
     </div>
 </div>
