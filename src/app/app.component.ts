@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
-import { NgClassComponent } from "./components/ng-class/ng-class.component";
+import { NgStyleComponent } from "./components/ng-style/ng-style.component";
 
 @Component({
   selector: 'app-root',
-  imports: [NgClassComponent],
+  imports: [NgStyleComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
