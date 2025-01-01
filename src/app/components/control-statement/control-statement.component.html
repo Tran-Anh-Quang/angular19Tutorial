@@ -54,3 +54,42 @@
         <input type="text" [(ngModel)]="dayName" maxlength="3" placeholder="Enter day starting">
     </div>
 </div>
+
+<div class="row">
+    <div class="col-3">
+        <select name="" id="">
+            @for (city of cityLists; track $index) {
+                <option>{{city}}</option>
+            }
+        </select>
+    </div>
+
+    <div class="col-3">
+        @for (city of cityLists; track $index) {
+            <button class="btn btn-success">{{city}}</button>
+        }
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-3">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Age</th>
+                    <th>City</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for (person of employeeList; track $index) {
+                    <tr>
+                        <td>{{person.name}}</td>
+                        <td>{{person.age}}</td>
+                        <td>{{person.city}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
