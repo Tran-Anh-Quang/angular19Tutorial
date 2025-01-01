@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
+import { ControlStatementComponent } from "./components/control-statement/control-statement.component";
 
-import { NgStyleComponent } from "./components/ng-style/ng-style.component";
 
 @Component({
   selector: 'app-root',
-  imports: [NgStyleComponent],
+  imports: [ControlStatementComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
