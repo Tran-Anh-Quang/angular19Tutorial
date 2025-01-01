@@ -8,9 +8,37 @@
     </div>
 
     <div class="col-3">
-        <div class="bg-primary p-3">
-            div2
-        </div>
+        @if (isChecked == true) {
+            <div class="bg-primary p-3">
+                checkbox is checked
+            </div>
+        } @else {
+            <div class="bg-danger p-3">
+                checkbox is unchecked
+            </div>
+        }
+    </div>
+
+    <div class="col-3">
+        @switch (dayName) {
+            @case ('mon') {
+                <span>Monday</span>
+        } @case ('tue') {
+            <span>Tuesday</span>
+        } @case ('wed') {
+            <span>Wednesday</span>
+        } @case ('thu') {
+            <span>Thursday</span>
+        } @case ('fri') {
+            <span>Friday</span>
+        } @case ('sat') {
+            <span>Saturday</span>
+        } @case ('sun') {
+            <span>Sunday</span>
+        } @default {
+            <span>Invalid day</span>
+        }
+        }
     </div>
 </div>
 
@@ -20,6 +48,9 @@
         <button class="btn btn-danger" (click)="hideAndShowDiv1(false)">hide</button>
     </div>
     <div class="col-3">
-
+        <input type="checkbox" name="" id="" [(ngModel)]="isChecked">
+    </div>
+    <div class="col-3">
+        <input type="text" [(ngModel)]="dayName" maxlength="3" placeholder="Enter day starting">
     </div>
 </div>
