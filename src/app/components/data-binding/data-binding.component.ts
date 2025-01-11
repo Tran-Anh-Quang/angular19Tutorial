@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-data-binding',
@@ -16,7 +17,7 @@ export class DataBindingComponent {
   div1ClassName: string = 'bg-primary';
   selectedCity: string = '';
 
-  constructor() { 
+  constructor(private router: Router) { 
     console.log(this.firstName);
 
     this.isActive = false;
@@ -31,5 +32,9 @@ export class DataBindingComponent {
 
   onCityChange() {
     console.log('Selected city:');
+  }
+
+  goToAdmin() {
+    this.router.navigateByUrl('/admin');
   }
 }
