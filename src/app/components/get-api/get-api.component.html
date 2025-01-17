@@ -1,0 +1,45 @@
+<p>get-api works!</p>
+
+<div class="row">
+    <div class="col-3">
+        <button class="btn btn-primary" (click)="getuser()">Get User</button>
+    </div>
+    <div class="col-3">
+        <button class="btn btn-primary" (click)="getCompany()">Get Company</button>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-6">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>id</th>
+                    <th>Name</th>
+                    <th>Username</th>
+                    <th>Phone</th>
+                    <th>Country</th>
+                </tr>
+            </thead>
+            <tbody>
+                @for(item of userList; track item.id){
+                    <tr>
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.username}}</td>
+                        <td>{{item.phone}}</td>
+                        <td>{{item.country}}</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-5">
+        <select>
+            @for(item of companyList; track item.id){
+                <option [value]="item.id">{{item.name}}</option>
+            }
+        </select>
+    </div>
+</div>
