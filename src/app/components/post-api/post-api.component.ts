@@ -6,43 +6,42 @@ import { FormsModule } from '@angular/forms';
   selector: 'app-post-api',
   imports: [FormsModule],
   templateUrl: './post-api.component.html',
-  styleUrl: './post-api.component.css'
+  styleUrl: './post-api.component.css',
 })
 export class PostApiComponent {
-
   carList: any[] = [];
-  
+
   car: any = {
-    "carId": 0,
-    "brand": "",
-    "model": "",
-    "year": "",
-    "color": "",
-    "dailyRate": "",
-    "carImage": "",
-    "regNo": ""
-  }
+    carId: 0,
+    brand: '',
+    model: '',
+    year: '',
+    color: '',
+    dailyRate: '',
+    carImage: '',
+    regNo: '',
+  };
 
   http = inject(HttpClient);
 
   getAllCars() {
-    this.http.get('/api/CarRentalApp/GetCars')
-    .subscribe((response: any) => {
+    this.http.get('/api/CarRentalApp/GetCars').subscribe((response: any) => {
       this.carList = response.data;
       console.log(this.carList);
     });
   }
 
   saveCar() {
-    this.http.post('/api/CarRentalApp/CreateNewCar', this.car)
-    .subscribe((response: any) => {
-      if(response.result) {
-        alert('Car saved successfully');
-        this.getAllCars();
-      } else {
-        alert(response.message);
-      }
-    });
+    this.http
+      .post('/api/CarRentalApp/CreateNewCar', this.car)
+      .subscribe((response: any) => {
+        if (response.result) {
+          alert('Car saved successfully');
+          this.getAllCars();
+        } else {
+          alert(response.message);
+        }
+      });
   }
 
   editCar(data: any) {
@@ -50,15 +49,31 @@ export class PostApiComponent {
   }
 
   updateCar() {
-    this.http.put('/api/CarRentalApp/UpdateCar', this.car)
-    .subscribe((response: any) => {
-      if(response.result) {
-        alert('Car updated successfully');
-        this.getAllCars();
-      } else {
-        alert(response.message);
-      }
-    });
+    this.http
+      .put('/api/CarRentalApp/UpdateCar', this.car)
+      .subscribe((response: any) => {
+        if (response.result) {
+          alert('Car updated successfully');
+          this.getAllCars();
+        } else {
+          alert(response.message);
+        }
+      });
   }
 
+  deleteCar(carId: number) {
+    const isDelete = confirm('Are you sure you want to delete this car?');
+    if (isDelete) {
+      this.http
+        .delete('/api/CarRentalApp/DeleteCarByCarId?carid=' + carId)
+        .subscribe((response: any) => {
+          if (response.result) {
+            alert('Car deleted successfully');
+            this.getAllCars();
+          } else {
+            alert(response.message);
+          }
+        });
+    }
+  }
 }
