@@ -45,4 +45,20 @@ export class PostApiComponent {
     });
   }
 
+  editCar(data: any) {
+    this.car = data;
+  }
+
+  updateCar() {
+    this.http.put('/api/CarRentalApp/UpdateCar', this.car)
+    .subscribe((response: any) => {
+      if(response.result) {
+        alert('Car updated successfully');
+        this.getAllCars();
+      } else {
+        alert(response.message);
+      }
+    });
+  }
+
 }

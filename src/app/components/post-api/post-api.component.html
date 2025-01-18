@@ -17,6 +17,7 @@
                                 <th>Model</th>
                                 <th>Reg No</th>
                                 <th>Daily Rate</th>
+                                <th>Action</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -27,6 +28,9 @@
                                     <td>{{item.model}}</td>
                                     <td>{{item.regNo}}</td>
                                     <td>{{item.dailyRate}}</td>
+                                    <td>
+                                        <button class="btn btn-success" (click)="editCar(item)">Edit</button>
+                                    </td>
                                 </tr>
                             }
                         </tbody>
@@ -72,8 +76,11 @@
                             <input type="text" id="carImageUrl" [(ngModel)]="car.carImage" class="form-control" name="carImageUrl" />
                         </div>
                         <div class="form-group mt-3">
-                            <button type="reset" class="btn btn-secondary">Reset Form</button>
-                            <button type="submit" (click)="saveCar()" class="btn btn-success">Save Car</button>
+                            @if (car.carId == 0) {
+                                <button class="btn btn-primary" (click)="saveCar()">Save</button>
+                            } @else {
+                                <button type="submit" (click)="updateCar()" value="Update" class="btn btn-warning">Update car</button>
+                            }
                         </div>
                     </form>
                 </div>
